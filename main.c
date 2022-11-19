@@ -126,11 +126,11 @@ struct Ball physicsBall(struct Ball ball, struct Player pl, struct Blocks* block
         }
         if(i < 100) {
             EndGames("GAME OVER");
-            //íàäî äîïèñàòü åñëè óïàë ìÿ÷
+            //Ã­Ã Ã¤Ã® Ã¤Ã®Ã¯Ã¨Ã±Ã Ã²Ã¼ Ã¥Ã±Ã«Ã¨ Ã³Ã¯Ã Ã« Ã¬Ã¿Ã·
         } else {
             i/=100;
             int x = i-(pl.size/2+1);
-            ball.speedX = cos(x/(x*x+1));           //óãîë íàêëîíà
+            ball.speedX = cos(x/(x*x+1));           //Ã³Ã£Ã®Ã« Ã­Ã ÃªÃ«Ã®Ã­Ã 
             ball.speedY = sin(1/(x*x+1));
             if(x < 0) {
                 ball.speedX = ball.speedX*(-1);
@@ -219,7 +219,7 @@ int main() {
     struct Player player= organizationPlayer(N, M, Z);
     struct Ball ball;
     short int proverka = 0;
-    level.level = 3;
+    level.level = 1;
     struct Blocks* blocks = Level_1(N, M);
 
     while(GameOver != true) {
@@ -254,7 +254,7 @@ int main() {
             ball = physicsBall(ball, player, blocks, pole, N, M);
         }
         if(EndLevel(blocks)) {
-            //÷òî äåëàòü äàëüøå?
+            //Ã·Ã²Ã® Ã¤Ã¥Ã«Ã Ã²Ã¼ Ã¤Ã Ã«Ã¼Ã¸Ã¥?
             Score += 1000;
             pole = organizationPole(N, M);
             player= organizationPlayer(N, M, Z);
@@ -263,7 +263,7 @@ int main() {
             free(blocks);
             blocks = Level_1(N, M);
         }
-        usleep(S); //ìèëëèñåêóíäû
+        usleep(S); //Ã¬Ã¨Ã«Ã«Ã¨Ã±Ã¥ÃªÃ³Ã­Ã¤Ã»
         setcur(0, 0);
     }
     sleep(S);
